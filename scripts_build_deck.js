@@ -107,7 +107,7 @@ function evid(e){let s=p.addSlide(); s.background={color:WHITE}; tab(s,1); kick(
   e.cards.forEach((c,i)=>stat(s,8.55+i*2.34,1.95,2.14,c[0],c[1],c[2]));
   s.addText(e.bul.map(t=>({text:t,options:{bullet:true,breakLine:true}})),{x:8.55,y:3.6,w:4.45,h:2.3,fontSize:12,color:INK,fontFace:F,valign:"top",paraSpaceAfter:6});
   key(s,e.key); ftr(s,e.src);}
-divider("02","데이터로 본 실태","혼잡과 사고는 어디·언제에 몰리는가 (근거 6)");
+divider("02","데이터로 본 실태","혼잡과 사고는 어디·언제에 몰리는가 — 근거 1~6");
 
 evid({k:"근거 01 · 이용객 추이",h:"코로나로 –27% 급감 후 빠르게 재혼잡 (2024년 91% 회복)",img:"근거1_연도추이.png",
   cards:[["–27.4%","2020 코로나",RED],["91%","2024 회복",NAVY]],bul:["수요가 다시 출퇴근에 집중","평시 부하↑ → 사고 시 위험↑"],key:"회복된 수요 = 혼잡·사고 리스크 재상승",src:"서울 열린데이터광장(2026)"});
