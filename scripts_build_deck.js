@@ -62,8 +62,8 @@ ftr(s);
 // 4 뉴스 영상 (유튜브 임베드)
 s=p.addSlide(); s.background={color:WHITE}; tab(s,0); kick(s,"문제 · 반복되는 현실");
 head(s,"이건 하루 이틀의 일이 아니다 — 언론이 반복 보도하는 '출근길 위험'");
-s.addMedia({type:"online", link:"https://www.youtube.com/embed/x-IJ8ivb4ro", x:3.37, y:1.8, w:6.58, h:3.7});
-s.addText("▶ SBS 뉴스 「목숨 건 출근길…여전한 김포 지옥철」 (발표 시 재생 · 인터넷 연결 필요)",{x:3.0,y:5.6,w:7.33,h:0.3,fontSize:10,italic:true,color:GRAYD,align:"center",fontFace:F,margin:0});
+s.addMedia({type:"online", link:"https://www.youtube.com/embed/x-IJ8ivb4ro?start=33&end=45", x:3.37, y:1.8, w:6.58, h:3.7});
+s.addText("▶ SBS 뉴스 「목숨 건 출근길…여전한 김포 지옥철」 · 핵심 구간 0:33~0:45 (인터넷 연결 필요)",{x:3.0,y:5.6,w:7.33,h:0.3,fontSize:10,italic:true,color:GRAYD,align:"center",fontFace:F,margin:0});
 key(s,"\"목숨 건 출근길\" — 압사 위험이 해마다 반복 보도되는 구조적 문제");
 ftr(s,"SBS 뉴스(YouTube 임베드) · 발표 시 스트리밍");
 
