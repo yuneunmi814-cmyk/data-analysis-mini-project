@@ -2,6 +2,7 @@ const pptxgen=require("pptxgenjs"); const p=new pptxgen();
 p.defineLayout({name:"W",width:13.33,height:7.5}); p.layout="W";
 p.author="데이터분석팀"; p.title="서울 지하철 혼잡·사고 정책 제언";
 const C="/Users/yoon/Documents/데이터분석/charts/";
+const HERO="/Users/yoon/Documents/데이터분석/assets/hero_station.jpg";
 const VID="/Users/yoon/Documents/데이터분석/영상/뉴스몽타주.mp4";
 const NAVY="112E51", STEEL="205493", INK="1E2124", GRAYD="6D7882", GRAYL="C7CDD4", BG="F4F5F6", WHITE="FFFFFF", RED="C0392B";
 const F="맑은 고딕";
@@ -23,14 +24,17 @@ function stat(s,x,y,w,num,label,clr){card(s,x,y,w,1.5);
 function key(s,txt){s.addShape(p.shapes.ROUNDED_RECTANGLE,{x:0.6,y:6.15,w:12.13,h:0.66,fill:{color:NAVY},rectRadius:0.05});
   s.addText([{text:"핵심  ",options:{bold:true,color:"9DB2CC"}},{text:txt,options:{bold:true,color:WHITE}}],{x:0.95,y:6.15,w:11.4,h:0.66,fontSize:13,valign:"middle",fontFace:F,margin:0});}
 
-// 1 표지
-let s=p.addSlide(); s.background={color:NAVY};
-s.addText("정책 제언 보고서",{x:0.9,y:1.55,w:11,h:0.4,fontSize:13,bold:true,color:"7FA8D0",fontFace:F,charSpacing:3});
-s.addText("출퇴근, 혼잡도 사고도 한 곳에 몰린다",{x:0.9,y:2.05,w:11.5,h:1.5,fontSize:38,bold:true,color:WHITE,fontFace:F,lineSpacingMultiple:1.08});
-s.addText("서울 지하철 혼잡·사고 데이터 분석과 정책 제언",{x:0.9,y:3.95,w:11.5,h:0.5,fontSize:17,color:"CADCFC",fontFace:F});
-s.addShape(p.shapes.LINE,{x:0.92,y:4.65,w:3.2,h:0,line:{color:"3A5575",width:1.5}});
-s.addText("서울 1~9호선 · 2015–2026 · 대상: 서울교통공사 · 국회 국토교통위원회",{x:0.9,y:4.85,w:11.5,h:0.4,fontSize:12.5,color:"8FA4BC",fontFace:F});
-s.addText("데이터분석팀 · 2026.6",{x:0.9,y:6.5,w:6,h:0.35,fontSize:11,color:"6F86A0",fontFace:F});
+// 1 표지 (히어로 이미지 + 대각선 네이비 블록)
+let s=p.addSlide(); s.background={path:HERO};
+s.addShape(p.shapes.RECTANGLE,{x:0,y:0,w:13.33,h:7.5,fill:{color:NAVY,transparency:20}});       // 전체 톤 통일
+s.addShape(p.shapes.RECTANGLE,{x:-4.6,y:-3,w:12.3,h:13.5,fill:{color:NAVY,transparency:5},rotate:9}); // 대각선 네이비 블록
+s.addShape(p.shapes.RECTANGLE,{x:6.05,y:-1.2,w:0.07,h:10.5,fill:{color:"56B4E9"},rotate:9});          // 시안 액센트 사선
+s.addText("정책 제언 보고서  ·  POLICY BRIEF",{x:0.9,y:1.32,w:7.2,h:0.4,fontSize:12.5,bold:true,color:"8FB4DC",fontFace:F,charSpacing:2});
+s.addText("서울 지하철 혼잡·사고\n데이터 분석을 통한\n안전·수요 대응 정책 제안",{x:0.88,y:1.92,w:7.3,h:2.85,fontSize:33,bold:true,color:WHITE,fontFace:F,lineSpacingMultiple:1.1});
+s.addShape(p.shapes.LINE,{x:0.95,y:5.0,w:2.9,h:0,line:{color:"56B4E9",width:2.2}});
+s.addText("\"출퇴근, 혼잡도 사고도 한 곳에 몰린다\"",{x:0.9,y:5.16,w:7,h:0.5,fontSize:15,italic:true,color:"CFE0F5",fontFace:F});
+s.addText("서울 1~9호선 · 2015–2026 · 대상: 서울교통공사 · 국회 국토교통위",{x:0.9,y:6.22,w:7.2,h:0.4,fontSize:11,color:"9FB2CC",fontFace:F});
+s.addText("이어드림스쿨 6기 · 데이터 분석 미니프로젝트 · 2026.6",{x:0.9,y:6.6,w:7.2,h:0.35,fontSize:11,color:"7E94B0",fontFace:F});
 
 // 2 Executive Summary (결론 먼저)
 s=p.addSlide(); s.background={color:WHITE}; tab(s,0); kick(s,"요약 · EXECUTIVE SUMMARY");
