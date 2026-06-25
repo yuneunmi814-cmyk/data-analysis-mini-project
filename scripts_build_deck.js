@@ -90,7 +90,7 @@ ftr(s,"팀원 직접 촬영(2025.7.4 서울대입구역)");
 // 5 안전위험 데이터
 s=p.addSlide(); s.background={color:WHITE}; tab(s,0); kick(s,"문제의 심각성 · 안전");
 head(s,"출근길 혼잡은 이미 '압사 위험' 수준이다");
-stat(s,0.6,2.1,3.9,"6.6명/㎡","구로역 혼잡도 252%\n= 이태원 참사 밀집도 수준",RED);
+stat(s,0.6,2.1,3.9,"6.6명/㎡","구로역 퇴근 252%(1호선)\n= 군중 '고위험'선(5명/㎡) 돌파",RED);
 stat(s,4.72,2.1,3.9,"200%+","김포골드라인 출근 혼잡\n(수년째 개선 안 됨)",RED);
 stat(s,8.84,2.1,3.9,"170%↑","이동 불가·얼굴 밀착\n(150%면 어깨 부딪침)",NAVY);
 card(s,0.6,3.95,12.13,1.85,BG);
@@ -100,6 +100,25 @@ s.addText([{text:"2025.7.4  2호선 서울대입구역 신호장애 → 약 4시
 {x:0.95,y:4.52,w:11.4,h:1.2,fontSize:13,color:INK,fontFace:F,valign:"top",paraSpaceAfter:5});
 key(s,"가장 혼잡한 노선·출근 피크에 사고 발생 → 평시 혼잡 = 사고 취약성");
 ftr(s,"경향·아시아경제 보도; 서울교통공사");
+
+// 5-2 군중 밀집도 객관 비교 (명/㎡)
+s=p.addSlide(); s.background={color:WHITE}; tab(s,0); kick(s,"문제의 심각성 · 군중 밀집도");
+head(s,"같은 잣대(명/㎡)로 보면 — 평소 출근길이 이미 '위험선'에 다가서 있다");
+img(s,"안전_밀집도비교.png",0.55,1.9,8.8,4.15);
+card(s,9.5,1.9,3.25,4.15,BG);
+s.addText("군중과학 위험 기준",{x:9.67,y:2.02,w:2.95,h:0.35,fontSize:13,bold:true,color:NAVY,fontFace:F,margin:0});
+s.addText([{text:"2명/㎡ — 행사 안전한계(Still)",options:{bullet:true,breakLine:true}},
+{text:"5명/㎡ — 위험 상한",options:{bullet:true,breakLine:true}},
+{text:"6~7명/㎡ — 군중 유체화·자력이동 불가",options:{bullet:true,breakLine:true}},
+{text:"9~10.7명/㎡ — 이태원 참사(NFS)",options:{bullet:true}}],
+{x:9.7,y:2.45,w:2.9,h:2.05,fontSize:10.8,color:INK,fontFace:F,valign:"top",paraSpaceAfter:7,lineSpacingMultiple:1.05});
+s.addShape(p.shapes.ROUNDED_RECTANGLE,{x:9.62,y:4.72,w:3.0,h:1.28,fill:{color:NAVY},rectRadius:0.05});
+s.addText([{text:"2호선 평소 ≈ 4명/㎡ ",options:{bold:true,color:"FFFFFF"}},
+{text:"(안전한계 2배)\n",options:{color:"CADCFC"}},
+{text:"최악 구간 6.6명/㎡ = 고위험",options:{bold:true,color:"F4C430"}}],
+{x:9.74,y:4.8,w:2.76,h:1.12,fontSize:11.5,fontFace:F,valign:"middle",lineSpacingMultiple:1.18,margin:0});
+key(s,"평소가 '위험선'에 가까운 상태 → 급정차·신호장애가 겹치면 쏠림·압사 메커니즘 작동");
+ftr(s,"Fruin(1971)·G.K.Still·Helbing(2012); 국립과학수사연구원; 서울교통공사 혼잡도");
 
 // 6~11 근거 1~6
 function evid(e){let s=p.addSlide(); s.background={color:WHITE}; tab(s,1); kick(s,e.k); head(s,e.h);
