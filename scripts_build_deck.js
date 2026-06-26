@@ -244,10 +244,11 @@ const ap=[
 ["수요분산·직주근접","도심 집중↓","시차(보조)+광역/도시계획","장기","국비·지방비"]];
 s.addTable(ap,{x:0.6,y:1.95,w:8.7,colW:[1.9,1.55,3.05,0.9,1.3],rowH:0.62,fontFace:F,fontSize:10.5,color:INK,valign:"middle",align:"left",border:{type:"solid",pt:1,color:GRAYL}});
 card(s,9.55,1.95,3.2,3.95,BG);
-s.addText("💸 비용편익",{x:9.7,y:2.1,w:2.9,h:0.4,fontSize:13.5,bold:true,color:NAVY,fontFace:F,margin:0});
-s.addText("81.3조원",{x:9.55,y:2.6,w:3.2,h:0.65,fontSize:27,bold:true,color:RED,align:"center",fontFace:F,margin:0});
-s.addText("연 교통혼잡비용(GDP 3.37%)\n= 줄여야 할 사회적 손실",{x:9.7,y:3.3,w:2.9,h:0.8,fontSize:11,color:GRAYD,align:"center",fontFace:F,margin:0,lineSpacingMultiple:1.15});
-s.addText("투자 대부분은 이미 편성된 4.65조\n→ '새 돈'이 아니라 적자·긴축에 안 밀리게 '제때' 집행",{x:9.7,y:4.2,w:2.9,h:1.55,fontSize:10.5,color:INK,align:"center",fontFace:F,margin:0,valign:"top",lineSpacingMultiple:1.2});
+s.addText("💸 비용 vs 피해 (보험료)",{x:9.7,y:2.1,w:2.95,h:0.4,fontSize:12.5,bold:true,color:NAVY,fontFace:F,margin:0});
+s.addText("7,247억/년",{x:9.55,y:2.6,w:3.2,h:0.62,fontSize:24,bold:true,color:RED,align:"center",fontFace:F,margin:0});
+s.addText("서울 지하철 혼잡 사회적 비용\n＋ 반복되는 사고·운행장애 피해",{x:9.7,y:3.25,w:2.9,h:0.7,fontSize:9.5,color:GRAYD,align:"center",fontFace:F,margin:0,lineSpacingMultiple:1.15});
+s.addText("투자 4.7조 대부분 이미 편성\n→ 예방이 사후 피해보다 싸다",{x:9.7,y:4.05,w:2.9,h:1.0,fontSize:10.5,bold:true,color:STEEL,align:"center",fontFace:F,margin:0,valign:"top",lineSpacingMultiple:1.2});
+s.addText("※ 81.3조=전국(도로 포함) 거시 규모",{x:9.7,y:5.55,w:2.9,h:0.3,fontSize:7.5,italic:true,color:GRAYL,align:"center",fontFace:F,margin:0});
 key(s,"근거1~6 → 제안 → 기대효과가 1:1로 연결된 실행계획");
 ftr(s,"KOTI 교통혼잡비용(2023); 해외 정책 효과");
 
@@ -266,12 +267,12 @@ const bud=[
 s.addTable(bud,{x:0.6,y:1.95,w:9.0,colW:[2.5,1.95,2.25,2.3],rowH:0.55,fontFace:F,fontSize:10.5,color:INK,valign:"middle",align:"left",border:{type:"solid",pt:1,color:GRAYL}});
 s.addText("¹ 우이신설선 기준 추정치(전 노선 확대 시 증가)    ² 서울시 자체 전망치",{x:0.6,y:5.88,w:9.0,h:0.3,fontSize:9,italic:true,color:GRAYD,fontFace:F,margin:0});
 card(s,9.78,1.95,2.95,3.95,BG);
-s.addText("편익 기준 (회수 가능성)",{x:9.9,y:2.08,w:2.7,h:0.35,fontSize:12,bold:true,color:NAVY,fontFace:F,margin:0});
-s.addText("14.6조원",{x:9.78,y:2.52,w:2.95,h:0.58,fontSize:26,bold:true,color:RED,align:"center",fontFace:F,margin:0});
-s.addText("서울 교통혼잡비용/년\n(2021 · 전국의 22%)",{x:9.85,y:3.12,w:2.8,h:0.6,fontSize:10.5,color:GRAYD,align:"center",fontFace:F,margin:0,lineSpacingMultiple:1.1});
-s.addText("81.3조원",{x:9.78,y:3.86,w:2.95,h:0.52,fontSize:22,bold:true,color:NAVY,align:"center",fontFace:F,margin:0});
-s.addText("전국(2023 · GDP 3.37%)",{x:9.85,y:4.42,w:2.8,h:0.35,fontSize:10.5,color:GRAYD,align:"center",fontFace:F,margin:0});
-s.addText("→ 혼잡비용의 일부만 줄여도\n4.7조 투자는 '비용'이 아닌 '회수'",{x:9.9,y:4.98,w:2.75,h:0.85,fontSize:11,bold:true,color:STEEL,align:"center",fontFace:F,margin:0,valign:"top",lineSpacingMultiple:1.15});
+s.addText("편익: 예방투자 = '보험료'",{x:9.9,y:2.06,w:2.78,h:0.35,fontSize:12,bold:true,color:NAVY,fontFace:F,margin:0});
+s.addText("7,247억원",{x:9.78,y:2.48,w:2.95,h:0.55,fontSize:24,bold:true,color:RED,align:"center",fontFace:F,margin:0});
+s.addText("서울 지하철 혼잡 사회적 비용/년\n(2016, 서울경제)",{x:9.85,y:3.04,w:2.8,h:0.55,fontSize:9.5,color:GRAYD,align:"center",fontFace:F,margin:0,lineSpacingMultiple:1.08});
+s.addText("＋ 반복 사고·운행장애 피해\n(상왕십리 1회 = 388명·8.5h)",{x:9.85,y:3.66,w:2.8,h:0.55,fontSize:9.5,color:GRAYD,align:"center",fontFace:F,margin:0,lineSpacingMultiple:1.08});
+s.addText("→ 사업비 4.7조(대부분 편성)는\n혼잡피해 수년·대형사고 1회로 회수",{x:9.88,y:4.3,w:2.78,h:0.9,fontSize:10,bold:true,color:STEEL,align:"center",fontFace:F,margin:0,valign:"top",lineSpacingMultiple:1.15});
+s.addText("※ 전국 혼잡비용 81.3조는 도로 포함 거시 규모",{x:9.85,y:5.55,w:2.85,h:0.4,fontSize:7.5,italic:true,color:GRAYL,align:"center",fontFace:F,margin:0,lineSpacingMultiple:1.05});
 key(s,"사업비는 추정이 아니라 공개된 예산·계획 문서로 뒷받침된 수치");
 ftr(s,"서울시·서울교통공사 발표·예산, 한국교통연구원(항목별 출처 표기)");
 
@@ -282,7 +283,7 @@ s=p.addSlide(); s.background={color:NAVY};
 s.addText("“",{x:0.78,y:0.5,w:3,h:1.5,fontSize:120,bold:true,color:"1E3C63",fontFace:"Georgia",margin:0});
 s.addText("혼잡과 사고가 겹치는 취약 지점을 데이터로 짚었다.",{x:0.9,y:2.05,w:11.5,h:0.9,fontSize:24,bold:true,color:WHITE,fontFace:F,lineSpacingMultiple:1.1});
 s.addText("이제, 우선순위 투자로 안전을 지킬 차례다.",{x:0.9,y:3.0,w:11.5,h:0.9,fontSize:24,bold:true,color:"CADCFC",fontFace:F});
-s.addText("상위 10% 역 28.5% 집중   ·   평소 출근 ≈ 4명/㎡(위험밀도)   ·   교통혼잡비용 연 81.3조원",{x:0.9,y:4.2,w:11.5,h:0.5,fontSize:15,bold:true,color:"CADCFC",fontFace:F});
+s.addText("평소 출근 ≈ 4명/㎡(위험밀도)   ·   서울 지하철 혼잡비용 연 7,247억   ·   예방투자 = '보험료'",{x:0.9,y:4.2,w:11.5,h:0.5,fontSize:15,bold:true,color:"CADCFC",fontFace:F});
 s.addShape(p.shapes.LINE,{x:0.92,y:4.92,w:3.2,h:0,line:{color:"3A5575",width:1.5}});
 s.addText("분석: 민토 SCQA·피라미드 · 기초통계(ANOVA·효과크기·Tukey·포아송) · K-means 군집 · Wilke 시각화",{x:0.9,y:5.18,w:11.5,h:0.4,fontSize:11,color:"8FA4BC",fontFace:F});
 s.addText("자료: 서울 열린데이터광장 · 공공데이터포털 · 한국교통연구원(KOTI) · 언론 보도",{x:0.9,y:5.56,w:11.5,h:0.4,fontSize:11,color:"8FA4BC",fontFace:F});
