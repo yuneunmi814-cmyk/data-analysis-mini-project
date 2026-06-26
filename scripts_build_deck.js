@@ -47,7 +47,7 @@ s=p.addSlide(); s.background={color:WHITE}; tab(s,0); kick(s,"요약 · EXECUTIV
 head(s,"한 장 요약 — 무엇이 문제이고, 무엇을 해야 하는가");
 const es=[["상황","코로나 후 수요 91% 회복 → 출퇴근 혼잡 재심화"],
 ["문제","혼잡한 노선·시간대에 사고가 겹치면 폭증 → 안전 위협 (반복 발생)"],
-["분석","혼잡·사고 모두 2호선·도심·출퇴근 집중 (상위10% 역 28.5% · 출근 사고율 2.65배 · η²=.28)"],
+["분석","혼잡·사고 모두 2호선·도심·출퇴근 집중 (상위10% 역 28.5% · 사고 출퇴근 34.4% 집중 · η²=.28)"],
 ["제언","취약 지점 우선 투자 + 사고·수요 대응 — 서울교통공사·국회 투트랙"]];
 es.forEach((e,i)=>{const y=1.95+i*1.05; card(s,0.6,y,12.13,0.92,i===3?BG:WHITE);
   s.addText(e[0],{x:0.8,y,w:1.7,h:0.92,fontSize:14,bold:true,color:i===3?RED:STEEL,valign:"middle",fontFace:F,margin:0});
@@ -136,8 +136,8 @@ evid({k:"근거 03 · 시간대 패턴",h:"출근 08시·퇴근 18시 — 뾰족
   cards:[["08시","출근 하차피크",NAVY],["18시","퇴근 승차피크",STEEL]],bul:["유입형(업무): 시청·종각·광화문","유출형(주거): 외곽역","→ 피크 분산이 핵심"],key:"수요 분산 정책은 08·18시 두 봉우리를 겨냥",src:"서울 열린데이터광장(2026)"});
 evid({k:"근거 04 · 공간 분포",h:"상위 10% 역이 전체의 28.5% — 도심·강남권 집중",img:"근거4_folium지도.png",
   cards:[["28.5%","상위10% 역 집중도",RED]],bul:["Top: 잠실·서울역·고속터미널","홍대입구·강남 (환승 허브)","→ 소수 지점 집중 관리 가능"],key:"혼잡은 소수 핫스팟에 집중 → 집중 투자가 효율적",src:"서울 열린데이터광장·공공데이터포털(좌표)"});
-evid({k:"근거 05 · 사고 분석 (5년 2,837건)",h:"사고도 같은 시간에 몰린다 — 출근 사고율이 2.65배",img:"근거5_사고시간대.png",
-  cards:[["2.65배","출근 사고율\n(포아송·비피크 대비)",RED],["34.4%","출퇴근 4시간 집중",RED]],bul:["08시 374건 최다, 퇴근 2.50배","사고 +81% 증가(2021→2024)","유형 75%가 혼잡 직결"],key:"혼잡 시간대 = 사고 다발 시간대, 데이터로 확증",src:"서울교통공사 최근5년 사고현황(2,837건); 팀 분석(포아송)"});
+evid({k:"근거 05 · 사고 분석 (5년 2,837건)",h:"사고는 혼잡과 '같은 시간'에 겹친다 — 터지는 순간 피해가 최대",img:"근거5_사고시간대.png",
+  cards:[["374건","08시 사고 최다\n(전 시간대 1위)",RED],["×1.5","이용객 보정 후 사고율\n(낮 시간대와 ~동일)",NAVY]],bul:["출퇴근 4시간에 34.4% 집중","건수 2.65배지만 이용객도 ~2배 → 노출효과","핵심은 '빈도'가 아니라 4명/㎡ 밀집에 겹치는 '영향'"],key:"사고가 출근 피크에 겹치면 = 최다 인원·최고 밀집에서 피해 → 영향 최대",src:"서울교통공사 5년 사고현황(2,837건); 팀 분석(시간대별 노출 보정)"});
 evid({k:"근거 06 · 역 유형 (K-means 군집)",h:"역은 업무지구·주거·상시형 3가지로 나뉜다 → 유형별 대책",img:"근거6_군집패턴.png",
   cards:[["3유형","K-means 군집",NAVY]],bul:["업무지구형 50역 (강남·여의도)","주거형 131역 (신림·구로)","상시·환승형 76역 (잠실·서울역)"],key:"혼잡 대책은 역마다가 아니라 '유형별 맞춤'으로",src:"서울 열린데이터광장(2026); 팀 분석(K-means)"});
 
@@ -181,22 +181,27 @@ function track(x,title,items){const w=5.9,y=1.95,h=4.0; card(s,x,y,w,h,BG);
   s.addText(title,{x:x+0.3,y,w:w-0.6,h:0.78,fontSize:16,bold:true,color:WHITE,valign:"middle",fontFace:F,margin:0});
   s.addText(items.map(t=>({text:t,options:{bullet:true,breakLine:true,paraSpaceAfter:9}})),{x:x+0.35,y:y+1.02,w:w-0.7,h:2.8,fontSize:13,color:INK,fontFace:F,valign:"top"});}
 track(0.6,"🚇 서울교통공사 (운영·실행)",["집중역·역유형별 맞춤 혼잡 관리","사고·급정차 시 비상 혼잡 대응 프로토콜","신호·전기 설비 예방정비","집중역 동선·승강설비 개선, 피크 증차"]);
-track(6.83,"🏛️ 국회 국토교통위 (입법·예산)",["시차출퇴근·유연근무 인센티브(수요 분산)","노후 신호·전동차 교체 예산 확보","이상상황 대응 기준 법제화","광역교통·직주근접 도시계획 연계"]);
+track(6.83,"🏛️ 국회 국토교통위 (입법·예산)",["무임수송 손실 국비 분담 → 안전투자 여력 확보","노후 신호·전동차 교체 '제때 집행' 예산","5분 기준 정시율 공표 + 운행중단 승객 환급제","공공기관 시차 확대·광역/직주근접 연계"]);
 key(s,"실행 주체(공사)와 제도·예산 주체(국회)가 함께 가야 완성");
 ftr(s);
 
-// 15 정책 수단 메뉴
+// 15 정책 수단 — 실현가능성 티어 (팀 검토 반영)
 s=p.addSlide(); s.background={color:WHITE}; tab(s,2); kick(s,"제안 · 정책 수단");
-head(s,"혼잡 분산 정책 카드 — 수요·공급·가격 3축");
-[["① 수요 관리",["시차출퇴근·유연근무 장려금","공공기관 시차출퇴근 의무화","교통유발부담금 감면(대형 빌딩)"]],
-["② 공급·하드웨어",["의자 없는(접이식) 지하철 칸","급행·셔틀 탄력 배차","환승역 일방통행·동선 안내"]],
-["③ 가격·기술 제어",["혼잡통행료·혼잡세→대중교통 재투자","실시간 혼잡도 연동 요금","급행/일반 요금 차등화"]]].forEach((col,i)=>{
-  const x=0.6+i*4.06,y=2.0,w=3.86,h=3.85; card(s,x,y,w,h,BG);
-  s.addShape(p.shapes.ROUNDED_RECTANGLE,{x,y,w,h:0.7,fill:{color:STEEL},rectRadius:0.06});
-  s.addText(col[0],{x,y,w,h:0.7,fontSize:15,bold:true,color:WHITE,align:"center",valign:"middle",fontFace:F,margin:0});
-  s.addText(col[1].map(t=>({text:t,options:{bullet:true,breakLine:true,paraSpaceAfter:8}})),{x:x+0.28,y:y+0.92,w:w-0.56,h:2.8,fontSize:12,color:INK,fontFace:F,valign:"top"});});
-key(s,"데이터 피크(2호선·08·18시·도심·역유형)에 맞춰 정책 카드를 조합");
-ftr(s,"고용노동부·서울시·국토부 정책 사례");
+head(s,"실현가능성으로 거른 정책 — 즉시 실행부터 보류까지");
+const tiers=[
+["즉시 · 저비용·기존 권한",NAVY,["혼잡역 동선개선·일방통행·실시간 혼잡 안내","집중배차(피크 증회) — 2호선 사당 10%p↓ 실증","사고·급정차 시 비상 대응 + 안전인력 배치","5분 기준 정시율·운행장애 공표(투명성)"]],
+["단기~중기 · 이미 편성→가속",STEEL,["노후 신호·전동차 교체 '제때 집행'(4.65조 진행)","피크 증차 1,025억(국비 256·25% 확보)","운행중단 시 승객 환급제(홍콩식 변형)"]],
+["중장기 · 구조·수요분산",STEEL,["공공기관 시차출퇴근 확대(보조·효과 ~2%)","비혼잡 시간대 '할인'(할증 아님)","직주근접·광역교통 연계","인구변화 대비 유연 투자(가동률 중심)"]]];
+tiers.forEach((col,i)=>{const x=0.6+i*4.06,y=1.95,w=3.86,h=3.05; card(s,x,y,w,h,BG);
+  s.addShape(p.shapes.ROUNDED_RECTANGLE,{x,y,w,h:0.6,fill:{color:col[1]},rectRadius:0.06});
+  s.addText(col[0],{x:x+0.1,y,w:w-0.2,h:0.6,fontSize:11.5,bold:true,color:WHITE,align:"center",valign:"middle",fontFace:F,margin:0});
+  s.addText(col[2].map(t=>({text:t,options:{bullet:true,breakLine:true,paraSpaceAfter:6}})),{x:x+0.24,y:y+0.74,w:w-0.46,h:2.25,fontSize:10.2,color:INK,fontFace:F,valign:"top",lineSpacingMultiple:1.04});});
+s.addShape(p.shapes.ROUNDED_RECTANGLE,{x:0.6,y:5.1,w:12.13,h:0.92,fill:{color:"F1ECEC"},line:{color:GRAYL,width:1},rectRadius:0.05});
+s.addText([{text:"✗ 보류·부적합 (검토 결과 제외)   ",options:{bold:true,color:RED}},
+{text:"혼잡통행료·혼잡세(할증) — 첨두 비탄력·역진성  ·  실시간 연동 할증요금  ·  시차 대규모 장려금(분산 ~2%·ROI 낮음)  ·  시차 의무화(현행 30% 권고·이용률 17.7%)",options:{color:INK}}],
+{x:0.85,y:5.1,w:11.6,h:0.92,fontSize:9.8,fontFace:F,valign:"middle",lineSpacingMultiple:1.12,margin:0});
+key(s,"\"새 돈\"이 아니라 이미 약속된 안전사업을 제때 — 효과 큰 것부터, 안 되는 건 솔직히 보류");
+ftr(s,"서울교통공사·국토부·KOTI; 해외(MTR·멜버른) 사례 — 실현성 검토 반영");
 
 divider("04","실행 계획","해외 검증 → 재원 → 액션 플랜");
 
@@ -217,16 +222,17 @@ s=p.addSlide(); s.background={color:WHITE}; tab(s,3); kick(s,"실행 · Action P
 head(s,"실행계획 — 목표·이행방법·기한·재원 (공약 수준 완결성)");
 const ap=[
 [{text:"제안",options:{bold:true,color:WHITE,fill:{color:NAVY},align:"center"}},{text:"목표(KPI)",options:{bold:true,color:WHITE,fill:{color:NAVY}}},{text:"이행 방법",options:{bold:true,color:WHITE,fill:{color:NAVY}}},{text:"기한",options:{bold:true,color:WHITE,fill:{color:NAVY},align:"center"}},{text:"재원",options:{bold:true,color:WHITE,fill:{color:NAVY},align:"center"}}],
-["집중역 혼잡·사고 대응","안전사고 0건","실시간 안내+안전인력+예방정비","단기","공사 운영비"],
-["수요 분산","피크 ○% 분산","시차출퇴근 인센티브+증차","중기","국비·기업"],
-["노후 설비 교체","사고 건수↓","신호·전동차 교체+안전기준 법제화","중장기","3.85조(국비)"],
-["광역·직주근접","도심 집중도↓","광역교통·도시계획 연계","장기","국비·지방비"]];
-s.addTable(ap,{x:0.6,y:1.95,w:8.7,colW:[1.9,1.6,3.0,0.9,1.3],rowH:0.7,fontFace:F,fontSize:11,color:INK,valign:"middle",align:"left",border:{type:"solid",pt:1,color:GRAYL}});
+["집중역 혼잡·사고 대응","피크 안전사고 0건","실시간 안내+안전인력+비상 프로토콜","즉시","공사 운영비"],
+["피크 공급 확대","9호선 199→159%","증차(1,025억·진행중)+집중배차","단기","국비25%+공사"],
+["노후 설비 교체 가속","장애·사고↓","신호·전동차 '제때 집행'","중기","4.65조(편성분)"],
+["안전투자 여력 확보","적자에 안 밀림","무임손실 국비분담+정시율 공표","중기","국비(입법)"],
+["수요분산·직주근접","도심 집중↓","시차(보조)+광역/도시계획","장기","국비·지방비"]];
+s.addTable(ap,{x:0.6,y:1.95,w:8.7,colW:[1.9,1.55,3.05,0.9,1.3],rowH:0.62,fontFace:F,fontSize:10.5,color:INK,valign:"middle",align:"left",border:{type:"solid",pt:1,color:GRAYL}});
 card(s,9.55,1.95,3.2,3.95,BG);
 s.addText("💸 비용편익",{x:9.7,y:2.1,w:2.9,h:0.4,fontSize:13.5,bold:true,color:NAVY,fontFace:F,margin:0});
 s.addText("81.3조원",{x:9.55,y:2.6,w:3.2,h:0.65,fontSize:27,bold:true,color:RED,align:"center",fontFace:F,margin:0});
 s.addText("연 교통혼잡비용(GDP 3.37%)\n= 줄여야 할 사회적 손실",{x:9.7,y:3.3,w:2.9,h:0.8,fontSize:11,color:GRAYD,align:"center",fontFace:F,margin:0,lineSpacingMultiple:1.15});
-s.addText("정책 효과(해외): 분산 2~7%\n→ 혼잡 완화 투자는 비용이 아닌 '회수'",{x:9.7,y:4.25,w:2.9,h:1.4,fontSize:11.5,color:INK,align:"center",fontFace:F,margin:0,valign:"top",lineSpacingMultiple:1.2});
+s.addText("투자 대부분은 이미 편성된 4.65조\n→ '새 돈'이 아니라 적자·긴축에 안 밀리게 '제때' 집행",{x:9.7,y:4.2,w:2.9,h:1.55,fontSize:10.5,color:INK,align:"center",fontFace:F,margin:0,valign:"top",lineSpacingMultiple:1.2});
 key(s,"근거1~6 → 제안 → 기대효과가 1:1로 연결된 실행계획");
 ftr(s,"KOTI 교통혼잡비용(2023); 해외 정책 효과");
 
@@ -283,7 +289,7 @@ s=p.addSlide(); s.background={color:NAVY};
 s.addText("“",{x:0.78,y:0.5,w:3,h:1.5,fontSize:120,bold:true,color:"1E3C63",fontFace:"Georgia",margin:0});
 s.addText("혼잡과 사고가 겹치는 취약 지점을 데이터로 짚었다.",{x:0.9,y:2.05,w:11.5,h:0.9,fontSize:24,bold:true,color:WHITE,fontFace:F,lineSpacingMultiple:1.1});
 s.addText("이제, 우선순위 투자로 안전을 지킬 차례다.",{x:0.9,y:3.0,w:11.5,h:0.9,fontSize:24,bold:true,color:"CADCFC",fontFace:F});
-s.addText("상위 10% 역 28.5% 집중   ·   출근 사고율 2.65배   ·   교통혼잡비용 연 81.3조원",{x:0.9,y:4.2,w:11.5,h:0.5,fontSize:15,bold:true,color:"CADCFC",fontFace:F});
+s.addText("상위 10% 역 28.5% 집중   ·   평소 출근 ≈ 4명/㎡(위험밀도)   ·   교통혼잡비용 연 81.3조원",{x:0.9,y:4.2,w:11.5,h:0.5,fontSize:15,bold:true,color:"CADCFC",fontFace:F});
 s.addShape(p.shapes.LINE,{x:0.92,y:4.92,w:3.2,h:0,line:{color:"3A5575",width:1.5}});
 s.addText("분석: 민토 SCQA·피라미드 · 기초통계(ANOVA·효과크기·Tukey·포아송) · K-means 군집 · Wilke 시각화",{x:0.9,y:5.18,w:11.5,h:0.4,fontSize:11,color:"8FA4BC",fontFace:F});
 s.addText("자료: 서울 열린데이터광장 · 공공데이터포털 · 한국교통연구원(KOTI) · 언론 보도",{x:0.9,y:5.56,w:11.5,h:0.4,fontSize:11,color:"8FA4BC",fontFace:F});
