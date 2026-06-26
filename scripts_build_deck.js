@@ -168,7 +168,7 @@ const types=[
 ["C. 광역환승·노후\n(인프라 병목)","1 · 5","광역철도 환승 부하(1호선 구로~신도림)+노후 → 사고 연계 혼잡","노후 신호·차량 교체 + 환승 동선 개선"]];
 s.addTable(types,{x:0.6,y:1.9,w:12.13,colW:[2.35,1.0,5.15,3.63],rowH:[0.45,0.95,0.95,0.95],fontFace:F,fontSize:11,color:INK,valign:"middle",align:"left",border:{type:"solid",pt:1,color:GRAYL}});
 s.addShape(p.shapes.ROUNDED_RECTANGLE,{x:0.6,y:5.32,w:12.13,h:0.8,fill:{color:"F1ECEC"},line:{color:GRAYL,width:1},rectRadius:0.05});
-s.addText([{text:"⚠ 9호선의 역설   ",options:{bold:true,color:RED}},{text:"6량(2호선 10량)·급행 쏠림 → 역당 이용 최하위인데 혼잡 최상위(급행 195%) = '못 늘려서(공급 부족)'. 원인이 다르니 유형별 처방이 답.",options:{color:INK}}],{x:0.85,y:5.32,w:11.6,h:0.8,fontSize:10.5,fontFace:F,valign:"middle",lineSpacingMultiple:1.12,margin:0});
+s.addText([{text:"9호선의 역설   ",options:{bold:true,color:RED}},{text:"6량(2호선 10량)·급행 쏠림 → 역당 이용 최하위인데 혼잡 최상위(급행 195%) = '못 늘려서(공급 부족)'. 원인이 다르니 유형별 처방이 답.",options:{color:INK}}],{x:0.85,y:5.32,w:11.6,h:0.8,fontSize:10.5,fontFace:F,valign:"middle",lineSpacingMultiple:1.12,margin:0});
 key(s,"MECE 분류 — 단일 기준(수요÷공급 '병목 위치')으로 9개 호선 중복·누락 없이 3유형 · A:공급확대 B:수요분산 C:인프라개량");
 ftr(s,"서울교통공사 혼잡도; 서울연구원·KOTI 보고서; 팀 「호선별 혼잡 원인」 분석");
 
@@ -194,8 +194,8 @@ function track(x,title,items){const w=5.9,y=1.95,h=4.0; card(s,x,y,w,h,BG);
   s.addShape(p.shapes.ROUNDED_RECTANGLE,{x,y,w,h:0.78,fill:{color:NAVY},rectRadius:0.06});
   s.addText(title,{x:x+0.3,y,w:w-0.6,h:0.78,fontSize:16,bold:true,color:WHITE,valign:"middle",fontFace:F,margin:0});
   s.addText(items.map(t=>({text:t,options:{bullet:true,breakLine:true,paraSpaceAfter:9}})),{x:x+0.35,y:y+1.02,w:w-0.7,h:2.8,fontSize:13,color:INK,fontFace:F,valign:"top"});}
-track(0.6,"🚇 서울교통공사 (운영·실행)",["집중역·역유형별 맞춤 혼잡 관리","사고·급정차 시 비상 혼잡 대응 프로토콜","신호·전기 설비 예방정비","집중역 동선·승강설비 개선, 피크 증차"]);
-track(6.83,"🏛️ 국회 국토교통위 (입법·예산)",["무임수송 손실 국비 분담 → 안전투자 여력 확보","노후 신호·전동차 교체 '제때 집행' 예산","5분 기준 정시율 공표 + 운행중단 승객 환급제","공공기관 시차 확대·광역/직주근접 연계"]);
+track(0.6,"서울교통공사 (운영·실행)",["집중역·역유형별 맞춤 혼잡 관리","사고·급정차 시 비상 혼잡 대응 프로토콜","신호·전기 설비 예방정비","집중역 동선·승강설비 개선, 피크 증차"]);
+track(6.83,"국회 국토교통위 (입법·예산)",["무임수송 손실 국비 분담 → 안전투자 여력 확보","노후 신호·전동차 교체 '제때 집행' 예산","5분 기준 정시율 공표 + 운행중단 승객 환급제","공공기관 시차 확대·광역/직주근접 연계"]);
 key(s,"실행 주체(공사)와 제도·예산 주체(국회)가 함께 가야 완성");
 ftr(s);
 
@@ -233,7 +233,7 @@ const ap=[
 ["수요분산·직주근접","도심 집중↓","시차(보조)+광역/도시계획","장기","국비·지방비"]];
 s.addTable(ap,{x:0.6,y:1.95,w:8.7,colW:[1.9,1.55,3.05,0.9,1.3],rowH:0.62,fontFace:F,fontSize:10.5,color:INK,valign:"middle",align:"left",border:{type:"solid",pt:1,color:GRAYL}});
 card(s,9.55,1.95,3.2,3.95,BG);
-s.addText("💸 비용 vs 피해 (보험료)",{x:9.7,y:2.1,w:2.95,h:0.4,fontSize:12.5,bold:true,color:NAVY,fontFace:F,margin:0});
+s.addText("비용 vs 피해 (보험료)",{x:9.7,y:2.1,w:2.95,h:0.4,fontSize:12.5,bold:true,color:NAVY,fontFace:F,margin:0});
 s.addText("7,247억/년",{x:9.55,y:2.6,w:3.2,h:0.62,fontSize:24,bold:true,color:RED,align:"center",fontFace:F,margin:0});
 s.addText("서울 지하철 혼잡 사회적 비용\n＋ 반복되는 사고·운행장애 피해",{x:9.7,y:3.25,w:2.9,h:0.7,fontSize:9.5,color:GRAYD,align:"center",fontFace:F,margin:0,lineSpacingMultiple:1.15});
 s.addText("투자 4.7조 대부분 이미 편성\n→ 예방이 사후 피해보다 싸다",{x:9.7,y:4.05,w:2.9,h:1.0,fontSize:10.5,bold:true,color:STEEL,align:"center",fontFace:F,margin:0,valign:"top",lineSpacingMultiple:1.2});
@@ -313,7 +313,7 @@ s=p.addSlide(); s.background={color:WHITE}; kick(s,"부록 · 다음 단계");
 head(s,"제안에서 멈추지 않는다 — 원천 데이터로 분석·제안을 고도화");
 card(s,0.6,1.95,4.35,4.05,BG);
 s.addShape(p.shapes.ROUNDED_RECTANGLE,{x:0.6,y:1.95,w:4.35,h:0.66,fill:{color:NAVY},rectRadius:0.06});
-s.addText("📨 진행 중 · 정보공개청구",{x:0.82,y:1.95,w:4.0,h:0.66,fontSize:13.5,bold:true,color:WHITE,valign:"middle",fontFace:F,margin:0});
+s.addText("진행 중 · 정보공개청구",{x:0.82,y:1.95,w:4.0,h:0.66,fontSize:13.5,bold:true,color:WHITE,valign:"middle",fontFace:F,margin:0});
 s.addText([{text:"접수기관 · 서울교통공사\n",options:{breakLine:true,bold:true}},
 {text:"접수번호 · 16931975\n",options:{breakLine:true}},
 {text:"접수일 · 2026.06.25\n",options:{breakLine:true}},
