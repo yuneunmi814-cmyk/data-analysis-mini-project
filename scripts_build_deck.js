@@ -65,7 +65,7 @@ s.addText("민토 피라미드 (결론 먼저)",{x:0.6,y:1.92,w:6,h:0.35,fontSiz
 s.addShape(p.shapes.RECTANGLE,{x:2.35,y:2.45,w:2.5,h:0.82,fill:{color:NAVY}});
 s.addText([{text:"결론 (Governing Thought)",options:{bold:true,color:"9DB6D6",fontSize:9,breakLine:true}},{text:"취약지점 우선투자 + 사고·수요 대응",options:{bold:true,color:WHITE,fontSize:10.5}}],{x:2.35,y:2.45,w:2.5,h:0.82,align:"center",valign:"middle",fontFace:F,margin:0,lineSpacingMultiple:1.05});
 s.addShape(p.shapes.RECTANGLE,{x:1.5,y:3.33,w:4.2,h:0.92,fill:{color:STEEL}});
-s.addText([{text:"근거 4축",options:{bold:true,color:"CFE0F0",fontSize:9,breakLine:true}},{text:"혼잡 집중(호선·시간·공간) · 사고 겹침 · 노후 · 역유형",options:{color:WHITE,fontSize:10}}],{x:1.55,y:3.33,w:4.1,h:0.92,align:"center",valign:"middle",fontFace:F,margin:0,lineSpacingMultiple:1.05});
+s.addText([{text:"근거 그룹핑 (MECE)",options:{bold:true,color:"CFE0F0",fontSize:9,breakLine:true}},{text:"호선 유형 A·B·C · 시간 · 공간 · 사고 · 노후",options:{color:WHITE,fontSize:10}}],{x:1.55,y:3.33,w:4.1,h:0.92,align:"center",valign:"middle",fontFace:F,margin:0,lineSpacingMultiple:1.05});
 s.addShape(p.shapes.RECTANGLE,{x:0.65,y:4.31,w:5.9,h:1.02,fill:{color:"6D7882"}});
 s.addText([{text:"통계·데이터 (검증)",options:{bold:true,color:"E5E8EB",fontSize:9,breakLine:true}},{text:"t-test · ANOVA(η²·Tukey) · 포아송 회귀 · K-means",options:{color:WHITE,fontSize:10,breakLine:true}},{text:"사고 5년 2,837건 + 시간대별 승하차 + 좌표",options:{color:"E5E8EB",fontSize:9}}],{x:0.7,y:4.31,w:5.8,h:1.02,align:"center",valign:"middle",fontFace:F,margin:0,lineSpacingMultiple:1.08});
 const methods=[["t-test","2호선 vs 그 외 역당 이용객 2.10배 — t=5.18, p<.001, Cohen's d=1.28(큰 효과)"],
@@ -162,14 +162,14 @@ s=p.addSlide(); s.background={color:WHITE}; tab(s,1); kick(s,"분석 · 호선 �
 head(s,"혼잡 원인은 호선마다 다르다 — 유형별 '맞춤 처방'");
 const LT={bold:true,color:WHITE,fill:{color:NAVY},valign:"middle",align:"center"};
 const types=[
-[{text:"유형",options:LT},{text:"호선",options:LT},{text:"혼잡 원인 (진단)",options:LT},{text:"맞춤 처방",options:LT}],
-[{text:"A. 구조적 고혼잡",options:{bold:true,color:RED}},{text:"2 · 9",options:{bold:true,color:RED,align:"center"}},{text:"순환선 절대수요(2)·급행 쏠림+6량 공급부족(9) → 기저 혼잡 상시",options:{bold:true,color:INK}},{text:"공급 확대: 증결(9호선 6→8량)·집중배차·CBTC",options:{bold:true,color:INK}}],
-["B. 시간·방향 쏠림","3·4·6·7·8","주거–업무 분리 → 쌍봉 피크·편방향 병목 (7호선 어대~건대, 4호선 수유~혜화)","수요 분산: 시차출퇴근·비피크 할인·병목 동선"],
-["C. 광역환승·노후","1 · 5","광역철도 환승 부하(1호선 구로~신도림)+노후 → 사고 연계 혼잡","노후 신호·차량 교체 + 환승 동선 개선"]];
+[{text:"유형 (지배적 병목)",options:LT},{text:"호선",options:LT},{text:"혼잡 원인 (진단)",options:LT},{text:"맞춤 처방",options:LT}],
+[{text:"A. 구조적 고혼잡\n(공급 병목)",options:{bold:true,color:RED}},{text:"2 · 9",options:{bold:true,color:RED,align:"center"}},{text:"순환선 절대수요(2)·급행 쏠림+6량 공급부족(9) → 기저 혼잡 상시",options:{bold:true,color:INK}},{text:"공급 확대: 증결(9호선 6→8량)·집중배차·CBTC",options:{bold:true,color:INK}}],
+["B. 시간·방향 쏠림\n(수요 병목)","3·4·6·7·8","주거–업무 분리 → 쌍봉 피크·편방향 병목 (7호선 어대~건대, 4호선 수유~혜화)","수요 분산: 시차출퇴근·비피크 할인·병목 동선"],
+["C. 광역환승·노후\n(인프라 병목)","1 · 5","광역철도 환승 부하(1호선 구로~신도림)+노후 → 사고 연계 혼잡","노후 신호·차량 교체 + 환승 동선 개선"]];
 s.addTable(types,{x:0.6,y:1.9,w:12.13,colW:[2.35,1.0,5.15,3.63],rowH:[0.45,0.95,0.95,0.95],fontFace:F,fontSize:11,color:INK,valign:"middle",align:"left",border:{type:"solid",pt:1,color:GRAYL}});
 s.addShape(p.shapes.ROUNDED_RECTANGLE,{x:0.6,y:5.32,w:12.13,h:0.8,fill:{color:"F1ECEC"},line:{color:GRAYL,width:1},rectRadius:0.05});
 s.addText([{text:"⚠ 9호선의 역설   ",options:{bold:true,color:RED}},{text:"6량(2호선 10량)·급행 쏠림 → 역당 이용 최하위인데 혼잡 최상위(급행 195%) = '못 늘려서(공급 부족)'. 원인이 다르니 유형별 처방이 답.",options:{color:INK}}],{x:0.85,y:5.32,w:11.6,h:0.8,fontSize:10.5,fontFace:F,valign:"middle",lineSpacingMultiple:1.12,margin:0});
-key(s,"혼잡 = 수요 ÷ 공급 → A:공급확대  B:수요분산  C:노후개량·환승 → 그룹별 사업");
+key(s,"MECE 분류 — 단일 기준(수요÷공급 '병목 위치')으로 9개 호선 중복·누락 없이 3유형 · A:공급확대 B:수요분산 C:인프라개량");
 ftr(s,"서울교통공사 혼잡도; 서울연구원·KOTI 보고서; 팀 「호선별 혼잡 원인」 분석");
 
 evid({k:"근거 03 · 시간대 패턴",h:"출근 08시·퇴근 18시 — 뾰족한 출퇴근 쌍봉 피크",img:"근거3_시간대.png",
