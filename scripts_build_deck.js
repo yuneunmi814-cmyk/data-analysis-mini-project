@@ -154,6 +154,21 @@ evid({k:"근거 01 · 이용객 추이",h:"코로나로 –27% 급감 후 빠르
   cards:[["–27.4%","2020 코로나",RED],["91%","2024 회복",NAVY]],bul:["수요가 다시 출퇴근에 집중","평시 부하↑ → 사고 시 위험↑"],key:"회복된 수요 = 혼잡·사고 리스크 재상승",src:"서울 열린데이터광장(2026)"});
 evid({k:"근거 02 · 호선별 비교",h:"혼잡은 2호선에 집중 — 유의할 뿐 아니라 효과도 크다",img:"근거2_호선Top8.png",
   cards:[["η²=0.28","ANOVA 大효과(28% 설명)",RED],["d=1.28","t-test 큰 효과",NAVY]],bul:["t-test: 2호선 vs 그외 2.10배 (t=5.18, p<.001)","ANOVA F=14.8, p<.001 · Tukey 2호선>6개선","→ 2호선 우선 투자 근거"],key:"t-test·ANOVA 모두 유의 + 실질 효과(η²=.28, d=1.28) 큼",src:"서울 열린데이터광장(2026); 팀 분석(t-test·ANOVA·Tukey)"});
+// 근거 2-2 · 호선 유형화 (진단 → 그룹 → 처방)
+s=p.addSlide(); s.background={color:WHITE}; tab(s,1); kick(s,"분석 · 호선 유형화");
+head(s,"혼잡 원인은 호선마다 다르다 — 유형별 '맞춤 처방'");
+const LT={bold:true,color:WHITE,fill:{color:NAVY},valign:"middle",align:"center"};
+const types=[
+[{text:"유형",options:LT},{text:"호선",options:LT},{text:"혼잡 원인 (진단)",options:LT},{text:"맞춤 처방",options:LT}],
+["A. 광역 거점형","1·2·4","도심(CBD) 관통·환승 밀집 + 노후 차량/신호","노후 신호·차량 현대화 → 배차 단축"],
+[{text:"B. 신도시 급행형",options:{bold:true,color:RED}},{text:"9",options:{bold:true,color:RED,align:"center"}},{text:"수요예측 실패(4량 개통)·급행 쏠림 → 공급 부족 (급행 195%)",options:{bold:true,color:INK}},{text:"증결·증차(6→8량) · 급행/완행 최적화",options:{bold:true,color:INK}}],
+["C. 보조/순환형","3·5·6·7·8","특정 구간 병목·주거 유출(굴곡 노선)","핀포인트 동선개선 · 환승 최적화"]];
+s.addTable(types,{x:0.6,y:1.9,w:12.13,colW:[2.25,1.15,5.1,3.63],rowH:[0.45,0.92,0.92,0.92],fontFace:F,fontSize:11.5,color:INK,valign:"middle",align:"left",border:{type:"solid",pt:1,color:GRAYL}});
+s.addShape(p.shapes.ROUNDED_RECTANGLE,{x:0.6,y:5.28,w:12.13,h:0.82,fill:{color:"F1ECEC"},line:{color:GRAYL,width:1},rectRadius:0.05});
+s.addText([{text:"⚠ 9호선의 역설   ",options:{bold:true,color:RED}},{text:"역당 이용객은 9개 호선 중 9위인데 혼잡은 최상위 — '많아서'가 아니라 '못 늘려서(공급 부족)'. 원인이 다르니 획일적 증차가 아닌 유형별 처방이 답.",options:{color:INK}}],{x:0.85,y:5.28,w:11.6,h:0.82,fontSize:11,fontFace:F,valign:"middle",lineSpacingMultiple:1.12,margin:0});
+key(s,"혼잡 = 수요 ÷ 공급 → A:노후·수요  B:공급부족  C:구간병목 → 그룹별 사업");
+ftr(s,"서울교통공사 혼잡도(2022~); 9호선 수요논란·KCI 비용효과분석 논문; 팀 분석");
+
 evid({k:"근거 03 · 시간대 패턴",h:"출근 08시·퇴근 18시 — 뾰족한 출퇴근 쌍봉 피크",img:"근거3_시간대.png",
   cards:[["08시","출근 하차피크",NAVY],["18시","퇴근 승차피크",STEEL]],bul:["유입형(업무): 시청·종각·광화문","유출형(주거): 외곽역","→ 피크 분산이 핵심"],key:"수요 분산 정책은 08·18시 두 봉우리를 겨냥",src:"서울 열린데이터광장(2026)"});
 evid({k:"근거 04 · 공간 분포",h:"상위 10% 역이 전체의 28.5% — 도심·강남권 집중",img:"근거4_folium지도.png",
