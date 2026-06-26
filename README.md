@@ -1,86 +1,91 @@
-# 🚇 서울 지하철 혼잡·사고 분석 (이어드림스쿨 6기 미니프로젝트)
+# 🚇 Seoul Subway Congestion & Accident Analysis → Policy Proposal
 
-> **출퇴근, 혼잡도 사고도 한 곳에 몰린다.**
-> 서울 지하철 1~9호선의 승하차·사고 데이터를 분석해 **"사고 시 가장 위험한 혼잡 취약 지점"**을 짚고, 정책입안자(서울교통공사·국회 국토교통위) 대상 **제안 + Action Plan**까지 도출한 프로젝트.
+> **"Congestion and accidents pile up in the same place."**
+> An analysis of Seoul Metro Lines 1–9 (ridership + 5-year accident data) that pinpoints the **"most dangerous congestion-vulnerable spots when an accident hits,"** and delivers a **proposal + Action Plan** for policymakers (Seoul Metro · National Assembly Land·Transport Committee).
 
-`범위: 서울 1~9호선` · `데이터: 2015–2026` · `대상: 정책입안자`
+`Scope: Seoul Lines 1–9` · `Data: 2015–2026` · `Audience: policymakers`
 
-## 📋 프로젝트 정보
-| 항목 | 내용 |
+## 📋 Project Info
+| Item | Detail |
 |---|---|
-| **주최** | 이어드림스쿨 6기 |
-| **팀** | 비대면 **9팀** |
-| **팀원** | 임종원 · 박상진 · 윤은미 (총 3명) |
-| **기간** | **2026. 6. 25 ~ 6. 26** (2일) · 비대면(온라인) 진행 |
-| **주제** | 서울 지하철 혼잡·사고 데이터 분석 → 정책 제언 (SCQA·Action Plan) |
-| **대상** | 정책입안자 (서울교통공사 · 국회 국토교통위원회) |
-| **산출물** | 발표자료 [`.pptx`](발표장표_지하철혼잡.pptx) / [`.pdf`](발표장표_지하철혼잡.pdf) · 분석 노트북 [`.ipynb`](notebooks/지하철_혼잡도_분석.ipynb) |
-| **분석 스택** | Python(pandas · scipy · statsmodels · scikit-learn · matplotlib · folium) · 통계(ANOVA · t-test · η² · Tukey · 포아송회귀 · K-means) · 민토 SCQA·피라미드 · Wilke 시각화 |
+| **Host** | Yeardream School, 6th cohort (이어드림스쿨 6기) |
+| **Team** | Online Team 9 (비대면 9팀) |
+| **Members** | Im Jong-won · Park Sang-jin · Yoon Eun-mi (3) |
+| **Period** | **2026-06-25 ~ 06-26** (2 days) · fully online |
+| **Topic** | Seoul subway congestion & accident analysis → policy proposal (SCQA · Action Plan) |
+| **Audience** | Policymakers (Seoul Metro · National Assembly Transport Committee) |
+| **Deliverables** | Presentation [`.pptx`](발표장표_지하철혼잡.pptx) / [`.pdf`](발표장표_지하철혼잡.pdf) · Analysis notebook [`.ipynb`](notebooks/지하철_혼잡도_분석.ipynb) |
+| **Stack** | Python (pandas · scipy · statsmodels · scikit-learn · matplotlib · folium) · Statistics (ANOVA · t-test · η² · Tukey · Poisson · K-means) · Minto SCQA/Pyramid · Wilke visualization |
 
-## 🎯 평가 기준 & 대응
-| 평가 기준 | 우리 대응 |
+## 🎯 Evaluation Criteria & Our Response
+| Criterion | Our Response |
 |---|---|
-| ① **SCQA** — 데이터 분석 문제 정의 | SCQA + '분석 설계' 슬라이드로 상황·문제·질문·답 명확화 |
-| ② **피라미드 근거** — 통계 분석(t-test·ANOVA·회귀) | 근거 1~6 + **t-test**(t=5.18)·**ANOVA**(η²=.28·Tukey)·**포아송회귀**·**K-means** + MECE 그룹핑 |
-| ③ **시각화 자료** | Wilke 원칙 차트 8종 + folium 실제 지도 + 군중 밀집도(명/㎡) 비교 |
-| ④ **Action Plan (So What?)** — *없으면 바로 탈락* | 호선 유형별 처방 + 투트랙 + **출처 명시 재원·CBA(보험료)** |
+| ① **SCQA** — frame the data-analysis problem | SCQA + "Analysis Design" slides making Situation·Complication·Question·Answer explicit |
+| ② **Pyramid evidence** — statistics (t-test · ANOVA · regression) | Evidence 1–6 + **t-test** (t=5.18) · **ANOVA** (η²=.28 · Tukey) · **Poisson regression** · **K-means** + MECE grouping |
+| ③ **Visualization** | 8 Wilke-style charts + folium real map + crowd-density (people/㎡) comparison |
+| ④ **Action Plan (So What?)** — *missing = instant elimination* | Line-type-specific prescriptions + two-track + **sourced budget · CBA ("insurance" logic)** |
 
----
+## 🔬 Analysis Roadmap
+![Analysis Roadmap](assets/analysis_roadmap.png)
 
-## 📌 핵심 결과 (TL;DR)
-| # | 근거 | 발견 |
+## 📌 Key Findings (TL;DR)
+| # | Evidence | Finding |
 |---|---|---|
-| 1 | 이용객 추이 | 코로나 **–27%** 급감 → 2024년 **91% 재혼잡** |
-| 2 | 호선별·유형화 | **2호선 압도**(t·ANOVA) + **호선 유형화 MECE**(A 공급·B 수요·C 인프라 병목) — 9호선=공급부족 |
-| 3 | 시간대 | 출근 **하차 08시** · 퇴근 **승차 18시** 쌍봉 피크 |
-| 4 | 공간 분포 | **상위 10% 역이 전체의 28.5%** (도심·강남권 집중) |
-| 5 | 사고 분석 ⭐ | 사고 **08시 최다·출퇴근 34.4%**(건수 2.65배=이용객도 ~1.8배, 포아송 노출 보정 시 ~1.3배 → 핵심은 '겹침의 영향')·**+81%↑**·다발역=혼잡역 |
-| 6 | 역 유형(K-means) | **업무지구·주거·상시형 3유형** → 유형별 맞춤 대책 |
+| 1 | Ridership trend | COVID **–27%** plunge → **91% rebound** by 2024 |
+| 2 | By line · typology | **Line 2 dominates** (t·ANOVA) + **MECE typology** — Line 9 = demand-forecast failure / supply shortage |
+| 3 | Time of day | Morning **alighting 08:00** · evening **boarding 18:00** twin peaks |
+| 4 | Spatial | **Top 10% of stations = 28.5%** of all ridership (CBD · Gangnam) |
+| 5 | Accidents ⭐ | **08:00 peak · 34.4% in rush hours** (count 2.65×; **~1.3× after exposure adjustment** → the point is *overlap impact*, not frequency) · **+81%↑** |
+| 6 | Station types (K-means) | **Business · residential · all-day — 3 types** → tailored measures |
 
-> **결론**: 혼잡 원인은 **호선마다 다르다**A.구조적 고혼잡=**공급 병목**(2·9) / B.시간·방향 쏠림=**수요 병목**(3·4·6·7·8) / C.광역환승·노후=**인프라 병목**(1·5) — **단일 기준 MECE**(중복·누락 없음) → **유형별 맞춤 처방**(A:공급확대·B:수요분산·C:인프라개량). 예방투자는 **'보험료'** — 사업비 4.7조(대부분 이미 편성)로 **서울 지하철 혼잡비용(연 7,247억, 2016)·반복 사고 피해**를 줄여 회수. *(전국 '도로' 교통혼잡비용 81.3조[KOTI'23·지하철 제외]는 거시 맥락 — '우리가 아끼는 돈'이 아님)*
+> **Conclusion**: Congestion causes **differ by line** → **type-specific prescriptions** (single MECE axis = "bottleneck location"):
+> **A. Structural overload = supply bottleneck** (2·9) → expand supply · **B. Time/direction skew = demand bottleneck** (3·4·6·7·8) → demand spreading · **C. Transfer-load & aging = infra bottleneck** (1·5) → infrastructure renewal.
+> Prevention is **"insurance"**: a **~4.7T KRW** budget (mostly already allocated) recovers Seoul subway congestion cost (**~725B KRW/yr**) + recurring accident damage. *(The national **road** congestion cost of 81.3T KRW [KOTI 2023, subway excluded] is macro context — not "money we save".)*
 
-> **🚨 안전 임팩트(객관 비교)**: 평소 2호선 출근 피크 ≈ **3.9~4.5명/㎡** — 군중 안전한계(2명/㎡)의 2배, 최혼잡 구간 6.6명/㎡(고위험). 이태원 참사 **9~10.7명/㎡**(국과수)과 **같은 잣대(명/㎡)**로 비교 → 사고가 겹치면 압사 메커니즘 영역. (근거: Fruin·G.K.Still·Helbing)
+> **🚨 Safety impact (objective comparison)**: Line 2 rush-hour ≈ **3.9–4.5 people/㎡** — twice the event safety limit (2/㎡); worst segment 6.6/㎡ (high-risk). On the same scale as the **Itaewon crowd crush (9–10.7/㎡, NFS estimate)**. If an accident overlaps this density, crush mechanics can begin. (Fruin 1971 · G.K. Still · Helbing 2012)
 
-**분석 프레임**: 바바라 민토 SCQA·피라미드 · 기초통계(ANOVA·효과크기 η²·Tukey·포아송회귀) · K-means 군집 · Claus Wilke 시각화 → 제안·Action Plan
+**Analysis frame**: Minto SCQA/Pyramid · statistics (ANOVA · η² · Tukey · Poisson) · K-means clustering · Claus Wilke visualization → proposal · Action Plan
 
-**🔬 분석 과정 (로드맵)**
-`① 데이터 수집·정제(승하차·사고·좌표, cp949)` → `② 탐색·근거 1~6(추이·호선·시간·공간·사고·역유형)` → `③ 통계 검증(ANOVA·t-test·포아송·K-means)` → `④ 호선 유형화(MECE: 공급/수요/인프라 병목)` → `⑤ 제안(유형별 처방·투트랙) + 비용편익(보험료)` → `⑥ 발표자료 24장 · 정책 제언`
+## 📊 Key Visuals
+| Crowd density (people/㎡) — everyday vs. crush disasters | Congestion map (folium, real basemap) |
+|:---:|:---:|
+| ![Crowd density comparison](charts/안전_밀집도비교.png) | ![Congestion map](charts/근거4_folium지도.png) |
 
----
+*(Charts are labeled in Korean — the analysis & deck target a Korean policy audience.)*
 
-## 📂 저장소 구조
-| 경로 | 내용 |
+## 📂 Repository Structure
+| Path | Contents |
 |---|---|
-| **[`발표장표_지하철혼잡.pptx`](발표장표_지하철혼잡.pptx)** | 🎤 **최종 발표자료 — 본문 24장 (+부록 5장, 평가 페이지 수 제외 · 페이지 `n/24` 표기)** (정책 제안서 톤: 네이비·회색 절제 + Apple SD Gothic Neo / 대각선 히어로 표지·섹션 간지·제목 액센트 바 / 임팩트 한장요약·분석설계(피라미드·통계)·**호선 유형화(MECE·A·B·C 병목별 진단×처방)**·군중 밀집도(명/㎡) 비교·**비용 vs 피해 CBA(보험료)** / **유튜브 뉴스·현장 영상(1.5배속)·folium 실제 지도 임베드** / 부록: 노후화·해외사례·정보공개청구·대안비교) |
-| **[`notebooks/지하철_혼잡도_분석.ipynb`](notebooks/지하철_혼잡도_분석.ipynb)** | 📓 **분석 노트북(소스코드)** — 근거 1~6 + 호선 유형화(MECE 검증) + 통계(t·ANOVA·η²·Tukey·포아송·K-means), Colab 재현 |
-| `data/` · 루트 `…시간대별 승하차 인원 정보.csv` | 원본 데이터 — 시간대별 승하차 · 역좌표 · 사고현황 5년 (CSV/XLSX, `cp949`) |
-| `charts/` | 분석 차트 8종 + **군중 밀집도 비교**(`안전_밀집도비교.png`) + folium 혼잡 지도(`지하철_혼잡_지도.html` → `근거4_folium지도.png`) |
-| `영상/` | 현장 영상(임종원 촬영·1.5배속) · 뉴스 몽타주(아카이브) — 본편은 SBS 유튜브 임베드 |
-| `assets/` | 표지 히어로 이미지 (Unsplash·Pexels, 무료 라이선스) |
-| `docs/` | 문제정의 · 제안_액션플랜 · 데이터수집_정의 · 정보공개청구_초안 · 회의_안건_브리핑 |
-| `docs/research/` | 자료조사 · 밀집도_비교_근거 · **정책_실현가능성_검토** · 교재_적용 (모두 출처 표기) |
-| 루트 보고서 | 팀 「서울 지하철 호선별 혼잡 원인 분석」 · 「AI발 사고 데이터」 · 「사고 사례 뉴스」 · 「정책 사례」 · [`완성본_해설_유가.md`](완성본_해설_유가.md) |
-| 참고 PDF | 서울연구원 「혼잡도 원인·대책」 · KOTI 「교통혼잡비용(2023)」 |
-| `scripts_build_deck.js` · `scripts_fix_rels.py` | 발표자료 빌드(pptxgenjs) · `.rels` `&` 이스케이프 수정 스크립트 |
+| **[`발표장표_지하철혼잡.pptx`](발표장표_지하철혼잡.pptx)** · [`.pdf`](발표장표_지하철혼잡.pdf) | 🎤 **Final deck — 24 body slides (+5 appendix, excluded from page count · `n/24` numbering)**: policy-report tone (navy/gray + Apple SD Gothic Neo), diagonal hero cover, section dividers, impact one-page summary, analysis design (pyramid), **line typology (MECE · A/B/C bottleneck)**, crowd-density (people/㎡), **cost-vs-damage CBA ("insurance")**, embedded YouTube news · field video (1.5×) · folium map. Appendix: aging infra · overseas cases · FOI request · alternative comparison |
+| **[`notebooks/지하철_혼잡도_분석.ipynb`](notebooks/지하철_혼잡도_분석.ipynb)** | 📓 **Analysis notebook (source code)** — Evidence 1–6 + line typology (with MECE assertion) + statistics (t·ANOVA·η²·Tukey·Poisson·K-means), reproducible on Colab |
+| `data/` · root `…ridership.csv` | Raw data — time-of-day ridership · station coords · 5-year accidents (CSV/XLSX, `cp949`) |
+| `charts/` | 8 analysis charts + crowd-density comparison (`안전_밀집도비교.png`) + folium congestion map (`지하철_혼잡_지도.html` → `근거4_folium지도.png`) |
+| `영상/` (videos) | Field video (filmed by team · 1.5×) · news montage (archive) — main deck uses an embedded SBS YouTube clip |
+| `assets/` | Cover hero images (Unsplash·Pexels, free license) + analysis roadmap diagram |
+| `docs/` | Problem definition · proposal & action plan · data-collection spec · FOI draft · meeting brief |
+| `docs/research/` | Research notes · density-comparison sources · **policy-feasibility review** · textbook application (all source-cited) |
+| Root reports | Team's "line-by-line congestion causes" · "AI accident data" · "accident news cases" · "policy cases" · model-answer analysis |
+| Reference PDFs | Seoul Institute "subway congestion causes & measures" · KOTI "traffic congestion cost (2023)" |
+| `scripts_build_deck.js` · `scripts_fix_rels.py` | Deck build (pptxgenjs) · `.rels` `&`-escape fix script |
 
-## ▶️ 분석 재현 방법
-1. Colab에서 `notebooks/지하철_혼잡도_분석.ipynb` 열기
-2. 데이터 업로드 — `data/` 파일들 + 루트 `…시간대별 승하차 인원 정보.csv`(메인). 노트북 `D()` 헬퍼가 경로 자동 탐색
-3. 한글폰트 설치 셀 실행 → 전체 셀 실행
-> ⚠️ 데이터 CSV는 **`cp949` 인코딩** (`pd.read_csv(..., encoding='cp949')`)
+## ▶️ How to Reproduce
+1. Open `notebooks/지하철_혼잡도_분석.ipynb` in Colab
+2. Upload data — files in `data/` + the root `…ridership.csv` (main). The notebook's `D()` helper auto-locates paths
+3. Run the Korean-font install cell → run all cells
+> ⚠️ CSVs use **`cp949`** encoding (`pd.read_csv(..., encoding='cp949')`)
 
-## 📊 데이터 출처
-- **서울 열린데이터광장** — 호선별·역별·시간대별 승하차 인원 (메인 데이터)
-- **공공데이터포털** — 도시철도 역사 좌표 · 서울교통공사 사고현황(5년 2,837건) · 지하철 혼잡도(%)
-- **한국교통연구원(KOTI) / 서울연구원** — 교통혼잡비용(2023·전국 **도로**·지하철 제외) · 「지하철 혼잡도 원인·대책」 보고서
-- **호선 유형화·9호선** — 서울교통공사 혼잡도(급행 195%) · 9호선 수요논란(나무위키) · KCI 「9호선 혼잡도 개선 비용효과분석」 논문 · 팀 「호선별 혼잡 원인 분석」
-- **군중 밀집도(명/㎡)** — 국립과학수사연구원(이태원 추정) · Fruin(1971)·G.K.Still·Helbing(2012) 군중과학 임계치 · 서울교통공사 혼잡도(정원 160명·1량 60.84㎡) · 서울 지하철 혼잡비용 7,247억(2016, 서울경제)
-- **사고 사례** — 상왕십리역 추돌(2014, 위키백과·국과수) · YTN·MBC·뉴시스·연합 등 보도(팀 「사고 사례 뉴스」)
-- **정보공개청구(진행 중)** — 서울교통공사 접수번호 16931975 (2026.6.25 접수 → 7.8 회신예정): 칸단위 혼잡·9호선·운행장애 영향·노후설비·혼잡완화 예산
+## 📊 Data Sources
+- **Seoul Open Data Plaza** — ridership by line · station · time-of-day (main dataset)
+- **data.go.kr (Public Data Portal)** — urban-rail station coords · Seoul Metro 5-year accidents (2,837) · congestion rate (%)
+- **KOTI / Seoul Institute** — traffic congestion cost (2023 · national **road** · subway excluded) · "subway congestion causes & measures" report
+- **Line typology · Line 9** — Seoul Metro congestion rate (express 195%) · Line 9 demand controversy · KCI paper "cost-effectiveness of Line 9 congestion improvement" · team "line-by-line causes"
+- **Crowd density (people/㎡)** — National Forensic Service (Itaewon estimate) · Fruin (1971)·G.K.Still·Helbing (2012) thresholds · Seoul Metro congestion (160 capacity/car · 60.84㎡) · Seoul subway congestion cost 725B KRW (2016, Seoul Economic Daily)
+- **Accident cases** — Sangwangsimni rear-end collision (2014, Wikipedia·NFS) · YTN·MBC·Newsis·Yonhap reports (team "accident news cases")
+- **FOI request (in progress)** — Seoul Metro receipt no. 16931975 (filed 2026-06-25 → reply expected 07-08): car-level congestion · Line 9 · disruption impact · aging-facility/congestion budgets
 
-## 📝 라이선스 / 저작권 주의
-- 직접 작성한 문서·코드·발표자료는 [MIT License](LICENSE)를 따릅니다.
-- ⚠️ **MIT 적용 대상 아님 (원저작권자 권리)**:
-  - 교재 PDF (Wilke, Field, ISLP, Minto) — 각 출판사/저자
-  - `02_데이터분석프로젝트/` 강의 제공 자료 — 이어드림스쿨/강사
-- 🔒 본 저장소는 **비공개(private)**. 위 저작권 자료, 캡처본 내 개인정보(연락처), **현장영상 내 인물(얼굴)** 때문에 **공개 전환 시 해당 파일을 반드시 제거**하세요.
+## 📝 License / Copyright Notice
+- Documents, code, and the deck authored by the team are under the [MIT License](LICENSE).
+- ⚠️ **NOT covered by MIT (original rights holders)**:
+  - Textbook PDFs (Wilke, Field, ISLP, Minto) — respective publishers/authors
+  - `02_데이터분석프로젝트/` lecture materials — Yeardream School / instructor
+- 🔒 This repository is **private**. Before making it public, remove the above copyrighted materials, any personal info in screenshots (contacts), and faces in the field video.
