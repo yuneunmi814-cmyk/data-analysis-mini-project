@@ -254,6 +254,30 @@ s.addText("→ 혼잡비용의 일부만 줄여도\n4.7조 투자는 '비용'이
 key(s,"사업비는 추정이 아니라 공개된 예산·계획 문서로 뒷받침된 수치");
 ftr(s,"서울시·서울교통공사 발표·예산, 한국교통연구원(항목별 출처 표기)");
 
+// 17-3 다음 단계 — 정책 고도화 로드맵 (정보공개청구)
+s=p.addSlide(); s.background={color:WHITE}; tab(s,3); kick(s,"실행 · 다음 단계");
+head(s,"제안에서 멈추지 않는다 — 원천 데이터로 분석·제안을 고도화");
+card(s,0.6,1.95,4.35,4.05,BG);
+s.addShape(p.shapes.ROUNDED_RECTANGLE,{x:0.6,y:1.95,w:4.35,h:0.66,fill:{color:NAVY},rectRadius:0.06});
+s.addText("📨 진행 중 · 정보공개청구",{x:0.82,y:1.95,w:4.0,h:0.66,fontSize:13.5,bold:true,color:WHITE,valign:"middle",fontFace:F,margin:0});
+s.addText([{text:"접수기관 · 서울교통공사\n",options:{breakLine:true,bold:true}},
+{text:"접수번호 · 16931975\n",options:{breakLine:true}},
+{text:"접수일 · 2026.06.25\n",options:{breakLine:true}},
+{text:"회신 예정 · 2026.07.08 (처리 10일)\n",options:{breakLine:true,bold:true,color:STEEL}},
+{text:"진행 · 처리부서 지정 (7단계 중 3)",options:{}}],
+{x:0.85,y:2.85,w:3.95,h:2.3,fontSize:12,color:INK,fontFace:F,valign:"top",lineSpacingMultiple:1.55,margin:0});
+s.addText("학술·교육 목적 · 개인정보 제외 집계자료 요청",{x:0.85,y:5.5,w:3.95,h:0.4,fontSize:9.5,italic:true,color:GRAYD,fontFace:F,margin:0});
+const fh={bold:true,color:WHITE,fill:{color:STEEL},valign:"middle"};
+const foi=[[{text:"청구 자료 (5종)",options:fh},{text:"→ 분석·제안 고도화",options:fh}],
+["칸(객차) 단위 혼잡도","칸별 혼잡 핫스팟 → 동선·안전인력 배치"],
+["9호선 시간대별 혼잡도","최혼잡 9호선 보강(현재 1~8호선 위주)"],
+["운행장애·사고 지연 영향","사고→지연·영향인원 정량화 → 비용편익 정교화"],
+["노후 설비 현황·교체 예산","노후도–사고 상관 + 교체 우선순위 도출"],
+["혼잡완화 조치·예산","조치별 예산 대비 효과 검증"]];
+s.addTable(foi,{x:5.2,y:1.95,w:7.55,colW:[2.95,4.6],rowH:0.66,fontFace:F,fontSize:11.5,color:INK,valign:"middle",align:"left",border:{type:"solid",pt:1,color:GRAYL}});
+key(s,"공개 통계로 문제를 '입증'했고 → 원천 데이터로 해법을 '정밀화'한다 (살아있는 분석)");
+ftr(s,"정보공개포털 open.go.kr · 접수번호 16931975(서울교통공사, 2026.6.25 접수)");
+
 // 18 마무리
 s=p.addSlide(); s.background={color:NAVY};
 s.addText("“",{x:0.78,y:0.5,w:3,h:1.5,fontSize:120,bold:true,color:"1E3C63",fontFace:"Georgia",margin:0});
