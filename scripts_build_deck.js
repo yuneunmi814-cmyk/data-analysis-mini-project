@@ -42,7 +42,7 @@ s.addText("서울 지하철 혼잡·사고\n데이터 분석을 통한\n안전·
 s.addShape(p.shapes.LINE,{x:0.95,y:5.0,w:2.9,h:0,line:{color:"56B4E9",width:2.2}});
 s.addText("\"출퇴근, 혼잡도 사고도 한 곳에 몰린다\"",{x:0.9,y:5.16,w:7,h:0.5,fontSize:15,italic:true,color:"CFE0F5",fontFace:F});
 s.addText("서울 1~9호선 · 2015–2026 · 대상: 서울교통공사 · 국회 국토교통위",{x:0.9,y:6.22,w:7.2,h:0.4,fontSize:11,color:"9FB2CC",fontFace:F});
-s.addText("이어드림스쿨 6기 · 데이터 분석 미니프로젝트 · 2026.6",{x:0.9,y:6.6,w:7.2,h:0.35,fontSize:11,color:"7E94B0",fontFace:F});
+s.addText("이어드림스쿨 6기 · 비대면 9팀 · 100종원 · 2026.6",{x:0.9,y:6.6,w:7.8,h:0.35,fontSize:11.5,bold:true,color:"AEC4DE",fontFace:F});
 pn(s,true);
 
 // 2 Executive Summary (결론 먼저)
